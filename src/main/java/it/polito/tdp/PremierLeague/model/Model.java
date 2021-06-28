@@ -84,5 +84,17 @@ public class Model {
 		return result;
 	}
 
+	
+	
+	
+	public void init(Integer n) {
+		
+	}
+
+	public void simula() {
+		// TODO Auto-generated method stub
+		
+	}
+
 
 }

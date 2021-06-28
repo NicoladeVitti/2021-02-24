@@ -48,6 +48,8 @@ public class FXMLController {
     @FXML
     void doCreaGrafo(ActionEvent event) {
     	
+    	txtResult.appendText("");
+    	
     	Match m = this.cmbMatch.getValue();
     	
     	if(m == null) {
@@ -62,7 +64,9 @@ public class FXMLController {
     }
 
     @FXML
-    void doGiocatoreMigliore(ActionEvent event) {    	
+    void doGiocatoreMigliore(ActionEvent event) {    
+    	
+    	txtResult.appendText("");
     	
     	txtResult.appendText("GIOCATORE MIGLIORE\n");
     	txtResult.appendText(model.getGiocatoreMigliore()+"\n");
@@ -70,7 +74,20 @@ public class FXMLController {
     
     @FXML
     void doSimula(ActionEvent event) {
+    	
+    	String n = this.txtN.getText();
+    	Integer N ;
+    	
+    	try {
+    		N = Integer.parseInt(n);
+    	}
+    	catch(NumberFormatException e) {
+        	txtResult.appendText("ERRORE: formato del numero di azioni non corretto");
+        	return;
+    	}
 
+    	model.init(N);
+    	model.simula();
     }
 
     @FXML // This method is called by the FXMLLoader when initialization is complete
